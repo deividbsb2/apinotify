@@ -35,7 +35,7 @@ app.route('/api/newsletter')
     .post(sendNewsletter);
 
 // launch an HTTP Server
-const httpServer = app.listen(9000, () => {
+const httpServer = app.listen(process.env.PORT || 3000, () => {
     console.log('HTTP Server running at ' + httpServer.address().address + ':' + httpServer.address().port);
 });
 
