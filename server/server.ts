@@ -5,7 +5,7 @@ import { readAllLessons } from './read-all-lessons.route';
 import { addPushSubscriber } from './add-push-subscriber.route';
 import { sendNewsletter } from './send-newsletter.route';
 const bodyParser = require('body-parser');
-
+const cors = require('cors');
 const webpush = require('web-push');
 
 const vapidKeys = {
@@ -21,7 +21,7 @@ webpush.setVapidDetails(
 );
 
 const app: Application = express();
-
+app.use(cors());
 app.use(bodyParser.json());
 
 // REST API
